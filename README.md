@@ -1,47 +1,16 @@
-# personal-portfolio
-A personal portfolio website showcasing my professional profile, technical skills, projects, and résumé. Built to present my work and learning journey in product analytics, data visualization, and web development.
-Personal Portfolio Website
+# React + Vite
 
-About the Project
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This repository contains my personal portfolio website, which showcases my professional profile, technical skills, projects, and résumé in one place.
+Currently, two official plugins are available:
 
-The goal is to create a clean, interactive, and user-friendly experience where recruiters and professionals can explore my work and background.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Features
+## React Compiler
 
-Professional introduction and profile
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Technical skills organised into categories
+## Expanding the ESLint configuration
 
-Project showcase
-
-Résumé access
-
-Responsive portfolio layout
-
-Technologies Used
-
-JavaScript
-
-HTML and CSS
-
-React and Vite (if used in the project)
-
-Getting Started
-
-Clone this repository.
-
-Open the project folder in Visual Studio Code.
-
-Install the required dependencies using npm install.
-
-Start the development server using npm run dev if the project is configured with Vite.
-
-Project Status
-
-Currently in development.
-
-Author
-
-Portfolio project by Prasanna.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
