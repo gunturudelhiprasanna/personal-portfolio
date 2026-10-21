@@ -4,7 +4,7 @@ Personal Portfolio Website
 
 About the Project
 
-This repository contains my personal portfolio website, designed to showcase my professional profile, technical skills, projects, and résumé in one place.
+This repository contains my personal portfolio website, which showcases my professional profile, technical skills, projects, and résumé in one place.
 
 The goal is to create a clean, interactive, and user-friendly experience where recruiters and professionals can explore my work and background.
 
