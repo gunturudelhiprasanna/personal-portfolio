@@ -162,8 +162,9 @@ function App() {
               <a className="button button-primary" href="#projects">
                 ▶ Explore My Work
               </a>
-             <a
+            <a
   href="/Delhi-prasanna-resume.pdf"
+  target="_blank"
   rel="noopener noreferrer"
   className="hero-button resume-button"
 >
@@ -177,16 +178,16 @@ function App() {
 
          
 <div className="hero-video-frame">
-  <video
-    className="hero-video"
-    src="/intro media.mp4"
-    controls
-    playsInline
-    loop
-    preload="auto"
-  >
-    Your browser does not support video playback.
-  </video>
+ <video
+  className="hero-video"
+  src="/intro-media.mp4"
+  controls
+  playsInline
+  loop
+  preload="metadata"
+>
+  Your browser does not support video playback.
+</video>
 
   <div className="video-glow" aria-hidden="true" />
 </div>
