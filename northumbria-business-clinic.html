@@ -3,99 +3,106 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#722f37">
-  <meta name="description" content="Case study: developing an impact measurement framework for Northumbria University Business Clinic.">
-  <title>Northumbria Business Clinic | Project Case Study</title>
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Northumbria University Business Clinic project case study by Delhi Prasanna.">
+  <title>Northumbria Business Clinic | Delhi Prasanna</title>
   <style>
     :root {
-      --cream: #F8F4E7;
-      --burgundy: #722F37;
-      --pink: #D7A7B1;
-      --ink: #211719;
-      --muted: #6d5a5c;
-      --line: rgba(114,47,55,.18);
-      --paper: #fffdf7;
-      --shadow: 0 18px 50px rgba(52,20,25,.10);
+      --bg: #141414;
+      --surface: #1f1f1f;
+      --surface-raised: #262626;
+      --red: #e50914;
+      --red-hover: #f6121d;
+      --white: #f5f5f1;
+      --muted: #b3b3b3;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0; background: var(--cream); color: var(--ink);
+      margin: 0; background: var(--bg); color: var(--white);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
     }
     a { color: inherit; }
     .topbar {
       position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
       justify-content: space-between; gap: 16px; padding: 15px clamp(18px, 5vw, 72px);
-      background: rgba(248,244,231,.92); backdrop-filter: blur(14px);
+      background: rgba(20,20,20,.92); backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
-    .brand { font-size: .8rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; color: var(--burgundy); }
-    .back { text-decoration: none; font-size: .88rem; font-weight: 750; border: 1px solid var(--line); padding: 9px 14px; border-radius: 999px; }
-    .back:hover { background: var(--burgundy); color: var(--cream); }
+    .brand { font-size: .8rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+    .back { text-decoration: none; font-size: .88rem; font-weight: 750; border: 1px solid rgba(255,255,255,.2); padding: 9px 14px; border-radius: 5px; transition: .2s ease; }
+    .back:hover { background: var(--red); border-color: var(--red); color: #fff; }
     .hero {
-      position: relative; overflow: hidden; padding: clamp(58px, 9vw, 112px) clamp(20px, 7vw, 100px) 70px;
-      color: var(--cream); background: var(--burgundy);
+      position: relative; overflow: hidden; padding: clamp(58px, 9vw, 112px) clamp(20px, 7vw, 100px) 75px;
+      background: linear-gradient(90deg, rgba(20,20,20,.98) 0%, rgba(20,20,20,.88) 48%, rgba(20,20,20,.42) 100%),
+        radial-gradient(ellipse at 82% 30%, rgba(229,9,20,.26), transparent 45%),
+        #181818;
+      border-bottom: 1px solid rgba(229,9,20,.35);
     }
-    .hero:before, .hero:after { content: ""; position: absolute; border-radius: 50%; pointer-events: none; }
-    .hero:before { width: 420px; height: 420px; right: -90px; top: -160px; border: 1px solid rgba(248,244,231,.18); box-shadow: 0 0 0 36px rgba(248,244,231,.035), 0 0 0 78px rgba(248,244,231,.025); }
-    .hero:after { width: 240px; height: 240px; right: 7%; bottom: -160px; background: rgba(215,167,177,.12); filter: blur(3px); }
+    .hero:before, .hero:after { content: ""; position: absolute; pointer-events: none; }
+    .hero:before { width: 430px; height: 430px; right: -100px; top: -170px; border: 1px solid rgba(229,9,20,.4); border-radius: 50%; box-shadow: 0 0 0 38px rgba(229,9,20,.045), 0 0 0 82px rgba(229,9,20,.025); }
+    .hero:after { width: 220px; height: 220px; right: 16%; bottom: -170px; border-radius: 50%; background: rgba(229,9,20,.18); filter: blur(55px); }
     .hero-inner { max-width: 1150px; margin: auto; position: relative; z-index: 1; }
-    .eyebrow { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 800; color: var(--pink); }
+    .eyebrow { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 850; color: #ff4b54; }
     h1 { font-size: clamp(2.5rem, 6.5vw, 5.8rem); line-height: .99; letter-spacing: -.055em; max-width: 900px; margin: 20px 0 25px; }
-    .hero p { max-width: 720px; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(248,244,231,.82); }
+    .hero p { max-width: 720px; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(245,245,241,.78); }
     .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .pill { border: 1px solid rgba(248,244,231,.28); border-radius: 999px; padding: 7px 12px; font-size: .78rem; color: var(--cream); }
+    .pill { border: 1px solid rgba(255,255,255,.24); border-radius: 4px; padding: 7px 12px; font-size: .78rem; color: var(--white); background: rgba(255,255,255,.035); }
     main { max-width: 1150px; margin: auto; padding: 0 clamp(18px, 4vw, 40px) 80px; }
     .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: -28px; position: relative; z-index: 2; }
-    .stat { padding: 24px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
-    .stat strong { display: block; font-size: clamp(1.7rem, 3vw, 2.6rem); letter-spacing: -.06em; color: var(--burgundy); line-height: 1.1; }
+    .stat { padding: 24px 20px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: 8px; box-shadow: var(--shadow); transition: transform .25s ease, border-color .25s ease; }
+    .stat:hover { transform: translateY(-5px); border-color: rgba(229,9,20,.65); }
+    .stat strong { display: block; font-size: clamp(1.7rem, 3vw, 2.6rem); letter-spacing: -.06em; color: var(--red); line-height: 1.1; }
     .stat span { display: block; margin-top: 8px; font-size: .82rem; color: var(--muted); }
     section { padding-top: 78px; }
-    .section-kicker { font-size: .72rem; color: var(--burgundy); font-weight: 850; letter-spacing: .18em; text-transform: uppercase; }
+    .section-kicker { font-size: .72rem; color: var(--red); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
     h2 { font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.04em; margin: 10px 0 16px; }
     .lead { max-width: 760px; color: var(--muted); font-size: 1.05rem; }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
-    .panel { background: var(--paper); border: 1px solid var(--line); border-radius: 22px; padding: clamp(20px, 3vw, 32px); box-shadow: var(--shadow); }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(20px, 3vw, 32px); box-shadow: var(--shadow); }
     .panel h3 { margin: 0 0 10px; font-size: 1.18rem; }
     .panel p { color: var(--muted); margin: 0; }
     .objective-list { display: grid; gap: 12px; margin-top: 22px; }
     .objective { display: flex; gap: 13px; align-items: flex-start; }
-    .num { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border-radius: 10px; background: #f0dfe1; color: var(--burgundy); font-weight: 850; font-size: .8rem; }
+    .num { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border-radius: 5px; background: rgba(229,9,20,.15); color: #ff555d; font-weight: 900; font-size: .8rem; }
     .objective strong { display: block; font-size: .95rem; }
     .objective small { display: block; color: var(--muted); margin-top: 3px; font-size: .85rem; }
     .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
-    .audit-card { border-radius: 18px; padding: 23px; background: var(--paper); border: 1px solid var(--line); }
-    .audit-card.positive { border-top: 4px solid #66856d; }
-    .audit-card.improve { border-top: 4px solid var(--burgundy); }
+    .audit-card { border-radius: 9px; padding: 23px; background: var(--surface); border: 1px solid var(--line); }
+    .audit-card.positive { border-top: 4px solid #4caf50; }
+    .audit-card.improve { border-top: 4px solid var(--red); }
     .audit-card h3 { margin: 0 0 15px; font-size: 1rem; }
     .audit-card ul { padding-left: 19px; margin: 0; color: var(--muted); }
     .audit-card li { margin: 9px 0; }
-    .stakeholder-wrap { background: #2a171a; color: var(--cream); padding: clamp(22px, 4vw, 38px); border-radius: 24px; margin-top: 24px; }
-    .stakeholder-wrap p { color: rgba(248,244,231,.7); max-width: 700px; }
+    .stakeholder-wrap { background: linear-gradient(135deg, #222 0%, #181818 100%); border: 1px solid rgba(229,9,20,.32); color: var(--white); padding: clamp(22px, 4vw, 38px); border-radius: 12px; margin-top: 24px; }
+    .stakeholder-wrap p { color: var(--muted); max-width: 700px; }
     .stakeholders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
-    .stakeholder { padding: 17px; border-radius: 14px; border: 1px solid rgba(248,244,231,.17); background: rgba(248,244,231,.05); }
-    .stakeholder .icon { font-size: 1.3rem; }
+    .stakeholder { padding: 17px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.035); transition: transform .25s ease, border-color .25s ease; }
+    .stakeholder:hover { transform: translateY(-4px); border-color: var(--red); }
+    .stakeholder .icon { font-size: 1.3rem; color: var(--red); }
     .stakeholder strong { display: block; margin-top: 7px; }
-    .stakeholder span { display: block; font-size: .82rem; color: rgba(248,244,231,.68); margin-top: 4px; }
+    .stakeholder span { display: block; font-size: .82rem; color: var(--muted); margin-top: 4px; }
     .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 25px; }
-    .flow-step { position: relative; padding: 22px 17px; border-radius: 16px; background: var(--paper); border: 1px solid var(--line); min-height: 165px; }
-    .flow-step:not(:last-child):after { content: "→"; position: absolute; right: -15px; top: 45%; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: var(--cream); background: var(--burgundy); font-weight: 900; }
+    .flow-step { position: relative; padding: 22px 17px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); min-height: 165px; }
+    .flow-step:not(:last-child):after { content: "→"; position: absolute; right: -15px; top: 45%; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: var(--red); font-weight: 900; }
     .flow-step b { display: block; font-size: 1.05rem; margin: 12px 0 6px; }
     .flow-step p { margin: 0; color: var(--muted); font-size: .85rem; }
-    .step-num { color: var(--burgundy); font-weight: 900; letter-spacing: .1em; font-size: .75rem; }
+    .step-num { color: var(--red); font-weight: 900; letter-spacing: .1em; font-size: .75rem; }
     .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
-    .audience { background: var(--paper); border: 1px solid var(--line); border-radius: 17px; padding: 20px; }
+    .audience { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; transition: transform .25s ease, border-color .25s ease; }
+    .audience:hover { transform: translateY(-4px); border-color: var(--red); }
+    .audience > span { display: inline-grid; place-items: center; width: 28px; height: 28px; background: rgba(229,9,20,.14); border-radius: 5px; color: var(--red); font-weight: 900; }
     .audience strong { display: block; margin: 8px 0 5px; }
     .audience p { margin: 0; color: var(--muted); font-size: .87rem; }
-    .insight { margin-top: 24px; padding: clamp(24px, 4vw, 42px); background: #ead1d6; border-radius: 22px; color: #381a20; }
+    .insight { margin-top: 24px; padding: clamp(24px, 4vw, 42px); background: linear-gradient(120deg, #33090c, #1f1f1f); border: 1px solid rgba(229,9,20,.5); border-radius: 10px; color: var(--white); }
     .insight blockquote { margin: 0; font-size: clamp(1.3rem, 3vw, 2.1rem); line-height: 1.25; font-weight: 750; letter-spacing: -.025em; }
-    .insight p { margin-bottom: 0; color: #64434a; }
+    .insight p { margin-bottom: 0; color: var(--muted); }
     .reflection { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
-    .note { border-left: 3px solid var(--burgundy); padding: 5px 0 5px 18px; color: var(--muted); }
     .footer { margin-top: 75px; padding-top: 25px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; color: var(--muted); font-size: .82rem; }
-    .footer a { color: var(--burgundy); font-weight: 800; text-decoration: none; }
+    .footer a { color: var(--red); font-weight: 800; text-decoration: none; }
     .small-note { font-size: .82rem; color: var(--muted); margin-top: 14px; }
     @media (max-width: 780px) {
       .stats { grid-template-columns: repeat(2, 1fr); }
@@ -109,10 +116,8 @@
       .topbar { align-items: flex-start; }
       .back { font-size: .78rem; }
     }
-    @media print {
-      .topbar { position: static; }
-      .hero { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-      .stat, .panel { box-shadow: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
 </head>
@@ -149,14 +154,8 @@
       <h2>The challenge was not only creating value — it was measuring it consistently.</h2>
       <p class="lead">The project brief called for a comprehensive approach to capturing, evaluating and communicating the impact of consultancy work delivered by students for live clients through the Business Clinic programme.</p>
       <div class="two-col" style="margin-top:25px">
-        <article class="panel">
-          <h3>Business problem</h3>
-          <p>The Clinic needed a clearer, more consistent way to capture evidence after projects, understand outcomes for different stakeholders and communicate its value to a range of audiences.</p>
-        </article>
-        <article class="panel">
-          <h3>Project aim</h3>
-          <p>Develop a framework connecting stakeholder needs, impact evidence, longer-term follow-up, outcome evaluation and dissemination.</p>
-        </article>
+        <article class="panel"><h3>Business problem</h3><p>The Clinic needed a clearer, more consistent way to capture evidence after projects, understand outcomes for different stakeholders and communicate its value to a range of audiences.</p></article>
+        <article class="panel"><h3>Project aim</h3><p>Develop a framework connecting stakeholder needs, impact evidence, longer-term follow-up, outcome evaluation and dissemination.</p></article>
       </div>
       <div class="panel" style="margin-top:20px">
         <h3>Project objectives</h3>
@@ -174,31 +173,15 @@
       <h2>What was working — and what could be strengthened?</h2>
       <p class="lead">The project material highlighted an established consultancy model and positive foundations, alongside opportunities to make impact evidence more consistent and useful.</p>
       <div class="audit-grid">
-        <article class="audit-card positive">
-          <h3>✓ Existing strengths</h3>
-          <ul>
-            <li>Established student-led consultancy model</li>
-            <li>Academic supervision supporting quality</li>
-            <li>Positive client feedback on project outputs</li>
-            <li>Student skills and employability development</li>
-          </ul>
-        </article>
-        <article class="audit-card improve">
-          <h3>↗ Areas to strengthen</h3>
-          <ul>
-            <li>Capture impact evidence more consistently</li>
-            <li>Strengthen longer-term client follow-up</li>
-            <li>Standardise data collection across projects</li>
-            <li>Build stronger evidence of business outcomes</li>
-          </ul>
-        </article>
+        <article class="audit-card positive"><h3>✓ Existing strengths</h3><ul><li>Established student-led consultancy model</li><li>Academic supervision supporting quality</li><li>Positive client feedback on project outputs</li><li>Student skills and employability development</li></ul></article>
+        <article class="audit-card improve"><h3>↗ Areas to strengthen</h3><ul><li>Capture impact evidence more consistently</li><li>Strengthen longer-term client follow-up</li><li>Standardise data collection across projects</li><li>Build stronger evidence of business outcomes</li></ul></article>
       </div>
     </section>
 
     <section id="stakeholders">
       <div class="section-kicker">03 · Stakeholder analysis</div>
       <h2>Different stakeholders need different evidence.</h2>
-      <p class="lead">The brief explicitly considered six stakeholder groups. A useful impact framework needs to connect each group's questions to relevant evidence rather than relying on a single overall satisfaction measure.</p>
+      <p class="lead">The project brief considered six stakeholder groups. A useful impact framework connects each group's questions to relevant evidence rather than relying on a single overall satisfaction measure.</p>
       <div class="stakeholder-wrap">
         <div class="eyebrow">Stakeholder evidence map</div>
         <div class="stakeholders">
@@ -213,16 +196,16 @@
     </section>
 
     <section id="framework">
-      <div class="section-kicker">04 · Proposed measurement logic</div>
+      <div class="section-kicker">04 · Measurement framework</div>
       <h2>From project activity to evidence of impact.</h2>
-      <p class="lead">The following visual summarises a practical measurement sequence aligned with the project brief. It is a presentation of the framework logic, not a claim that every measure was implemented.</p>
+      <p class="lead">This visual summarises a practical measurement sequence aligned with the project brief. It presents the framework logic, not a claim that every measure was implemented.</p>
       <div class="flow">
         <div class="flow-step"><span class="step-num">STEP 01</span><b>Capture a baseline</b><p>Record the client's starting point, needs and intended outcomes.</p></div>
         <div class="flow-step"><span class="step-num">STEP 02</span><b>Record delivery</b><p>Capture project outputs, feedback, engagement and agreed actions.</p></div>
         <div class="flow-step"><span class="step-num">STEP 03</span><b>Follow up</b><p>Check progress after completion and at planned longer-term intervals.</p></div>
         <div class="flow-step"><span class="step-num">STEP 04</span><b>Evaluate outcomes</b><p>Compare evidence against relevant KPIs and communicate what changed.</p></div>
       </div>
-      <p class="small-note">Potential evidence categories from the brief include business performance, turnover, capability development, client satisfaction, student confidence and employability. Specific KPI definitions and collection intervals should be confirmed against the final report.</p>
+      <p class="small-note">Potential evidence categories from the brief include business performance, turnover, capability development, client satisfaction, student confidence and employability. Confirm KPI definitions and collection intervals against the final report.</p>
     </section>
 
     <section id="dissemination">
@@ -243,15 +226,8 @@
       <div class="section-kicker">06 · Key takeaway</div>
       <h2>Measure consistently. Follow up meaningfully. Communicate clearly.</h2>
       <div class="reflection">
-        <div class="insight">
-          <blockquote>“The opportunity is to measure, organise and communicate the value the Business Clinic already creates more consistently.”</blockquote>
-          <p>Central takeaway from the project material.</p>
-        </div>
-        <div class="panel">
-          <h3>Skills demonstrated by the project</h3>
-          <p>Business problem framing, internal and external audit, stakeholder analysis, KPI and impact measurement thinking, evidence collection planning, evaluation design and audience-focused communication.</p>
-          <p class="small-note">Only retain skills that accurately reflect your own contribution. Add your specific responsibilities, dashboard screenshots and personal learning here before publishing.</p>
-        </div>
+        <div class="insight"><blockquote>“The opportunity is to measure, organise and communicate the value the Business Clinic already creates more consistently.”</blockquote><p>Central takeaway from the project material.</p></div>
+        <div class="panel"><h3>Skills demonstrated by the project</h3><p>Business problem framing, internal and external audit, stakeholder analysis, KPI and impact measurement thinking, evidence collection planning, evaluation design and audience-focused communication.</p><p class="small-note">Keep only the skills that accurately reflect your contribution. Add your specific responsibilities, dashboard screenshots and personal learning before publishing.</p></div>
       </div>
     </section>
 
