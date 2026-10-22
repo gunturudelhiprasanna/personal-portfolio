@@ -1,1 +1,10 @@
-src="/intro-media.mp4"
+<video
+  className="hero-video"
+  src="/intro-media.mp4"
+  controls
+  playsInline
+  loop
+  preload="metadata"
+>
+  Your browser does not support video playback.
+</video>
