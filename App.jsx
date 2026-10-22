@@ -180,7 +180,7 @@ function App() {
 <div className="hero-video-frame">
 <video
   className="hero-video"
-  src="/intro-media.mp4"
+  src="/intro media.mp4"
   controls
   playsInline
   loop
