@@ -178,9 +178,9 @@ function App() {
 
          
 <div className="hero-video-frame">
- <video
+<video
   className="hero-video"
-  src="/intro media.mp4"
+  src="/intro%20media.mp4"
   controls
   playsInline
   loop
