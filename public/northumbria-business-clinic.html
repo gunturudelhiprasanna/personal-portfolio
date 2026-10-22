@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141414">
+  <meta name="description" content="Northumbria University Business Clinic project case study by Delhi Prasanna.">
+  <title>Northumbria Business Clinic | Delhi Prasanna</title>
+  <style>
+    :root {
+      --bg: #141414;
+      --surface: #1f1f1f;
+      --surface-raised: #262626;
+      --red: #e50914;
+      --red-hover: #f6121d;
+      --white: #f5f5f1;
+      --muted: #b3b3b3;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; padding: 15px clamp(18px, 5vw, 72px);
+      background: rgba(20,20,20,.92); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { font-size: .8rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+    .back { text-decoration: none; font-size: .88rem; font-weight: 750; border: 1px solid rgba(255,255,255,.2); padding: 9px 14px; border-radius: 5px; transition: .2s ease; }
+    .back:hover { background: var(--red); border-color: var(--red); color: #fff; }
+    .hero {
+      position: relative; overflow: hidden; padding: clamp(58px, 9vw, 112px) clamp(20px, 7vw, 100px) 75px;
+      background: linear-gradient(90deg, rgba(20,20,20,.98) 0%, rgba(20,20,20,.88) 48%, rgba(20,20,20,.42) 100%),
+        radial-gradient(ellipse at 82% 30%, rgba(229,9,20,.26), transparent 45%),
+        #181818;
+      border-bottom: 1px solid rgba(229,9,20,.35);
+    }
+    .hero:before, .hero:after { content: ""; position: absolute; pointer-events: none; }
+    .hero:before { width: 430px; height: 430px; right: -100px; top: -170px; border: 1px solid rgba(229,9,20,.4); border-radius: 50%; box-shadow: 0 0 0 38px rgba(229,9,20,.045), 0 0 0 82px rgba(229,9,20,.025); }
+    .hero:after { width: 220px; height: 220px; right: 16%; bottom: -170px; border-radius: 50%; background: rgba(229,9,20,.18); filter: blur(55px); }
+    .hero-inner { max-width: 1150px; margin: auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 850; color: #ff4b54; }
+    h1 { font-size: clamp(2.5rem, 6.5vw, 5.8rem); line-height: .99; letter-spacing: -.055em; max-width: 900px; margin: 20px 0 25px; }
+    .hero p { max-width: 720px; font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(245,245,241,.78); }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .pill { border: 1px solid rgba(255,255,255,.24); border-radius: 4px; padding: 7px 12px; font-size: .78rem; color: var(--white); background: rgba(255,255,255,.035); }
+    main { max-width: 1150px; margin: auto; padding: 0 clamp(18px, 4vw, 40px) 80px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: -28px; position: relative; z-index: 2; }
+    .stat { padding: 24px 20px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: 8px; box-shadow: var(--shadow); transition: transform .25s ease, border-color .25s ease; }
+    .stat:hover { transform: translateY(-5px); border-color: rgba(229,9,20,.65); }
+    .stat strong { display: block; font-size: clamp(1.7rem, 3vw, 2.6rem); letter-spacing: -.06em; color: var(--red); line-height: 1.1; }
+    .stat span { display: block; margin-top: 8px; font-size: .82rem; color: var(--muted); }
+    section { padding-top: 78px; }
+    .section-kicker { font-size: .72rem; color: var(--red); font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { font-size: clamp(1.8rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.04em; margin: 10px 0 16px; }
+    .lead { max-width: 760px; color: var(--muted); font-size: 1.05rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: stretch; }
+    .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(20px, 3vw, 32px); box-shadow: var(--shadow); }
+    .panel h3 { margin: 0 0 10px; font-size: 1.18rem; }
+    .panel p { color: var(--muted); margin: 0; }
+    .objective-list { display: grid; gap: 12px; margin-top: 22px; }
+    .objective { display: flex; gap: 13px; align-items: flex-start; }
+    .num { display: grid; place-items: center; flex: 0 0 32px; height: 32px; border-radius: 5px; background: rgba(229,9,20,.15); color: #ff555d; font-weight: 900; font-size: .8rem; }
+    .objective strong { display: block; font-size: .95rem; }
+    .objective small { display: block; color: var(--muted); margin-top: 3px; font-size: .85rem; }
+    .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+    .audit-card { border-radius: 9px; padding: 23px; background: var(--surface); border: 1px solid var(--line); }
+    .audit-card.positive { border-top: 4px solid #4caf50; }
+    .audit-card.improve { border-top: 4px solid var(--red); }
+    .audit-card h3 { margin: 0 0 15px; font-size: 1rem; }
+    .audit-card ul { padding-left: 19px; margin: 0; color: var(--muted); }
+    .audit-card li { margin: 9px 0; }
+    .stakeholder-wrap { background: linear-gradient(135deg, #222 0%, #181818 100%); border: 1px solid rgba(229,9,20,.32); color: var(--white); padding: clamp(22px, 4vw, 38px); border-radius: 12px; margin-top: 24px; }
+    .stakeholder-wrap p { color: var(--muted); max-width: 700px; }
+    .stakeholders { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+    .stakeholder { padding: 17px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.035); transition: transform .25s ease, border-color .25s ease; }
+    .stakeholder:hover { transform: translateY(-4px); border-color: var(--red); }
+    .stakeholder .icon { font-size: 1.3rem; color: var(--red); }
+    .stakeholder strong { display: block; margin-top: 7px; }
+    .stakeholder span { display: block; font-size: .82rem; color: var(--muted); margin-top: 4px; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 25px; }
+    .flow-step { position: relative; padding: 22px 17px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); min-height: 165px; }
+    .flow-step:not(:last-child):after { content: "→"; position: absolute; right: -15px; top: 45%; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: var(--red); font-weight: 900; }
+    .flow-step b { display: block; font-size: 1.05rem; margin: 12px 0 6px; }
+    .flow-step p { margin: 0; color: var(--muted); font-size: .85rem; }
+    .step-num { color: var(--red); font-weight: 900; letter-spacing: .1em; font-size: .75rem; }
+    .audience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+    .audience { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 20px; transition: transform .25s ease, border-color .25s ease; }
+    .audience:hover { transform: translateY(-4px); border-color: var(--red); }
+    .audience > span { display: inline-grid; place-items: center; width: 28px; height: 28px; background: rgba(229,9,20,.14); border-radius: 5px; color: var(--red); font-weight: 900; }
+    .audience strong { display: block; margin: 8px 0 5px; }
+    .audience p { margin: 0; color: var(--muted); font-size: .87rem; }
+    .insight { margin-top: 24px; padding: clamp(24px, 4vw, 42px); background: linear-gradient(120deg, #33090c, #1f1f1f); border: 1px solid rgba(229,9,20,.5); border-radius: 10px; color: var(--white); }
+    .insight blockquote { margin: 0; font-size: clamp(1.3rem, 3vw, 2.1rem); line-height: 1.25; font-weight: 750; letter-spacing: -.025em; }
+    .insight p { margin-bottom: 0; color: var(--muted); }
+    .reflection { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
+    .footer { margin-top: 75px; padding-top: 25px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; color: var(--muted); font-size: .82rem; }
+    .footer a { color: var(--red); font-weight: 800; text-decoration: none; }
+    .small-note { font-size: .82rem; color: var(--muted); margin-top: 14px; }
+    @media (max-width: 780px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .two-col, .reflection { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .flow-step:not(:last-child):after { display: none; }
+      .stakeholders, .audience-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .stats, .audit-grid, .flow, .stakeholders, .audience-grid { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; }
+      .back { font-size: .78rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Project navigation">
+    <div class="brand">Delhi Prasanna · Project Case Study</div>
+    <a class="back" href="/" aria-label="Back to portfolio">← Back to portfolio</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Business consultancy · Northumbria University · 28 May 2026</div>
+      <h1>Measuring impact.<br>Making value visible.</h1>
+      <p>Developing a comprehensive impact measurement framework for the Northumbria University Business Clinic — a student consultancy programme working with live clients.</p>
+      <div class="hero-meta">
+        <span class="pill">Stakeholder analysis</span>
+        <span class="pill">Impact measurement</span>
+        <span class="pill">KPI framework</span>
+        <span class="pill">Power BI</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="stats" aria-label="Business Clinic at a glance">
+      <div class="stat"><strong>870+</strong><span>Organisations supported</span></div>
+      <div class="stat"><strong>780+</strong><span>Projects delivered</span></div>
+      <div class="stat"><strong>3,100+</strong><span>Students engaged</span></div>
+      <div class="stat"><strong>£2.2m</strong><span>Estimated client value</span></div>
+    </div>
+
+    <section id="overview">
+      <div class="section-kicker">01 · Project overview</div>
+      <h2>The challenge was not only creating value — it was measuring it consistently.</h2>
+      <p class="lead">The project brief called for a comprehensive approach to capturing, evaluating and communicating the impact of consultancy work delivered by students for live clients through the Business Clinic programme.</p>
+      <div class="two-col" style="margin-top:25px">
+        <article class="panel"><h3>Business problem</h3><p>The Clinic needed a clearer, more consistent way to capture evidence after projects, understand outcomes for different stakeholders and communicate its value to a range of audiences.</p></article>
+        <article class="panel"><h3>Project aim</h3><p>Develop a framework connecting stakeholder needs, impact evidence, longer-term follow-up, outcome evaluation and dissemination.</p></article>
+      </div>
+      <div class="panel" style="margin-top:20px">
+        <h3>Project objectives</h3>
+        <div class="objective-list">
+          <div class="objective"><span class="num">01</span><div><strong>Audit current practice and external context</strong><small>Review consultancy, higher-education engagement and knowledge-exchange approaches.</small></div></div>
+          <div class="objective"><span class="num">02</span><div><strong>Understand stakeholder evidence needs</strong><small>Consider clients, students, academic staff, Clinic management, university leadership and the wider community.</small></div></div>
+          <div class="objective"><span class="num">03</span><div><strong>Plan evidence collection and follow-up</strong><small>Recommend methods for capturing impact after project completion and over the longer term.</small></div></div>
+          <div class="objective"><span class="num">04</span><div><strong>Evaluate and communicate impact</strong><small>Consider client outcomes, capability development, performance indicators and audience-appropriate dissemination.</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="audit">
+      <div class="section-kicker">02 · Internal audit</div>
+      <h2>What was working — and what could be strengthened?</h2>
+      <p class="lead">The project material highlighted an established consultancy model and positive foundations, alongside opportunities to make impact evidence more consistent and useful.</p>
+      <div class="audit-grid">
+        <article class="audit-card positive"><h3>✓ Existing strengths</h3><ul><li>Established student-led consultancy model</li><li>Academic supervision supporting quality</li><li>Positive client feedback on project outputs</li><li>Student skills and employability development</li></ul></article>
+        <article class="audit-card improve"><h3>↗ Areas to strengthen</h3><ul><li>Capture impact evidence more consistently</li><li>Strengthen longer-term client follow-up</li><li>Standardise data collection across projects</li><li>Build stronger evidence of business outcomes</li></ul></article>
+      </div>
+    </section>
+
+    <section id="stakeholders">
+      <div class="section-kicker">03 · Stakeholder analysis</div>
+      <h2>Different stakeholders need different evidence.</h2>
+      <p class="lead">The project brief considered six stakeholder groups. A useful impact framework connects each group's questions to relevant evidence rather than relying on a single overall satisfaction measure.</p>
+      <div class="stakeholder-wrap">
+        <div class="eyebrow">Stakeholder evidence map</div>
+        <div class="stakeholders">
+          <div class="stakeholder"><div class="icon">↗</div><strong>Clients</strong><span>Practical outcomes and business results</span></div>
+          <div class="stakeholder"><div class="icon">◎</div><strong>Students</strong><span>Skills, confidence and employability</span></div>
+          <div class="stakeholder"><div class="icon">▤</div><strong>Academic staff</strong><span>Project quality and feasibility</span></div>
+          <div class="stakeholder"><div class="icon">◈</div><strong>Clinic management</strong><span>Satisfaction, impact evidence and efficiency</span></div>
+          <div class="stakeholder"><div class="icon">⌂</div><strong>University leadership</strong><span>Reputation, partnerships and institutional reporting</span></div>
+          <div class="stakeholder"><div class="icon">✳</div><strong>Wider community</strong><span>Social, economic and environmental benefits</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="framework">
+      <div class="section-kicker">04 · Measurement framework</div>
+      <h2>From project activity to evidence of impact.</h2>
+      <p class="lead">This visual summarises a practical measurement sequence aligned with the project brief. It presents the framework logic, not a claim that every measure was implemented.</p>
+      <div class="flow">
+        <div class="flow-step"><span class="step-num">STEP 01</span><b>Capture a baseline</b><p>Record the client's starting point, needs and intended outcomes.</p></div>
+        <div class="flow-step"><span class="step-num">STEP 02</span><b>Record delivery</b><p>Capture project outputs, feedback, engagement and agreed actions.</p></div>
+        <div class="flow-step"><span class="step-num">STEP 03</span><b>Follow up</b><p>Check progress after completion and at planned longer-term intervals.</p></div>
+        <div class="flow-step"><span class="step-num">STEP 04</span><b>Evaluate outcomes</b><p>Compare evidence against relevant KPIs and communicate what changed.</p></div>
+      </div>
+      <p class="small-note">Potential evidence categories from the brief include business performance, turnover, capability development, client satisfaction, student confidence and employability. Confirm KPI definitions and collection intervals against the final report.</p>
+    </section>
+
+    <section id="dissemination">
+      <div class="section-kicker">05 · Dissemination strategy</div>
+      <h2>Make the evidence useful to the audience.</h2>
+      <p class="lead">The brief called for formats and channels tailored to prospective clients, students, university leadership, award applications and accreditation panels.</p>
+      <div class="audience-grid">
+        <div class="audience"><span>01</span><strong>Prospective clients</strong><p>Short case studies, outcome summaries and client stories.</p></div>
+        <div class="audience"><span>02</span><strong>Students</strong><p>Project showcases and examples of skills developed.</p></div>
+        <div class="audience"><span>03</span><strong>University leadership</strong><p>Concise KPI dashboards and periodic impact reports.</p></div>
+        <div class="audience"><span>04</span><strong>Award applications</strong><p>Structured evidence, examples and documented outcomes.</p></div>
+        <div class="audience"><span>05</span><strong>Accreditation panels</strong><p>Consistent evidence, methodology and evaluation summaries.</p></div>
+        <div class="audience"><span>06</span><strong>Wider community</strong><p>Accessible impact highlights and partnership updates.</p></div>
+      </div>
+    </section>
+
+    <section id="reflection">
+      <div class="section-kicker">06 · Key takeaway</div>
+      <h2>Measure consistently. Follow up meaningfully. Communicate clearly.</h2>
+      <div class="reflection">
+        <div class="insight"><blockquote>“The opportunity is to measure, organise and communicate the value the Business Clinic already creates more consistently.”</blockquote><p>Central takeaway from the project material.</p></div>
+        <div class="panel"><h3>Skills demonstrated by the project</h3><p>Business problem framing, internal and external audit, stakeholder analysis, KPI and impact measurement thinking, evidence collection planning, evaluation design and audience-focused communication.</p><p class="small-note">Keep only the skills that accurately reflect your contribution. Add your specific responsibilities, dashboard screenshots and personal learning before publishing.</p></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>Northumbria University Business Clinic · Team Spark · 28 May 2026</span>
+      <a href="/">← Return to portfolio</a>
+    </div>
+  </main>
+</body>
+</html>
